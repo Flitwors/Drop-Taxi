@@ -1,0 +1,573 @@
+@import "colors";
+@import "fonts";
+@import "media_queries";
+@import "common";
+
+header {
+  background-color: $white;
+  .topBar {
+    background-color: $secondary;
+    padding: 15px 0px;
+    @media screen and (max-width: 1366px) {
+      padding: 10px 0px;
+    }
+    * {
+      color: $white;
+    }
+    i {
+      font-size: 18px;
+    }
+    .separator {
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 16px;
+        top: 3px;
+        left: -20px;
+        background-color: $white;
+        @include max(md) {
+          display: none;
+        }
+      }
+    }
+
+    .socialIcon {
+      i {
+        color: $secondary;
+        transition: 0.3s;
+      }
+      &:hover {
+        i {
+          opacity: 0.75;
+        }
+      }
+    }
+  }
+  &.fixed-header {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.1);
+    .navbar {
+      .navbar-brand {
+        img {
+          //width: 120px;
+        }
+      }
+    }
+  }
+  .navbar {
+    .navbar-brand {
+      img {
+        width: 247px;
+        transition: 0.05s;
+        @media screen and (max-width: 1366px) {
+          width: 200px;
+        }
+        @include max(md) {
+          width: 150px;
+        }
+      }
+    }
+    @include max(lg) {
+      .navbar-collapse {
+        &.show {
+          border-top: 1px solid #dddddd;
+          margin-top: 25px;
+          > ul {
+            margin-top: 25px;
+          }
+        }
+      }
+    }
+    .navbar-nav {
+      .nav-item {
+        .nav-link {
+          font-size: 18px;
+          padding: 5px 17px;
+          font-weight: 400;
+          position: relative;
+          color: $secondary;
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 10px;
+            border-bottom: 4px dashed $primary;
+            width: calc(100% - 20px);
+            opacity: 0;
+            transition: 0.3s;
+          }
+          &.active {
+            font-weight: 800;
+            background-color: $primary;
+            border-radius: 30px;
+          }
+          &:not(.active):hover {
+            &::before {
+              opacity: 1;
+              bottom: -5px;
+            }
+          }
+          @include max(lg) {
+            text-align: center;
+            padding: 10px 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.banner {
+  background-color: $primary;
+  height: calc(100vh - 157px);
+  @media screen and (max-width: 1366px) {
+    height: calc(100vh - 131px);
+  }
+  @include max(md) {
+    height: calc(100vh - 117px);
+  }
+  .parking {
+    .road {
+      position: absolute;
+      left: 0;
+      top: 157px;
+      width: 100%;
+      height: 100%;
+      background-image: url(../images/banner-shape.svg);
+      background-size: 100% 100%;
+      background-position-y: 55px;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: 1s;
+      @include max(3xl) {
+        left: -150px;
+        top: 61px;
+      }
+      @media screen and (max-width: 1366px) {
+        top: 17vh;
+      }
+      @include max(lg) {
+        top: 20vh;
+      }
+      @include max(md) {
+        // left: -30px;
+        // top: auto;
+        // bottom: -50vw;
+        display: none;
+      }
+      &.active {
+        opacity: 1;
+      }
+    }
+    .car {
+      position: absolute;
+      bottom: -31vh;
+      left: 0;
+      width: 45vw;
+      transition: 2s;
+
+      @media screen and (max-width: 1366px) {
+        bottom: -20vw;
+        width: 50vw;
+        left: -40vw;
+      }
+      @include max(sm) {
+        width: 80vw;
+      }
+      &.active {
+        left: 45vw;
+        bottom: 12vh;
+        @include max(4xl) {
+          left: 53vw;
+          bottom: 13vh;
+        }
+        @include max(3xl) {
+          left: 41vw;
+          bottom: 15vh;
+        }
+        @include max(xxl) {
+          left: 47vw;
+          bottom: 18vh;
+        }
+        @media screen and (max-width: 1366px) {
+          left: 43vw;
+          bottom: 10vh;
+        }
+        @include max(xl) {
+          left: 50vw;
+          bottom: 14vh;
+        }
+        @include max(lg) {
+          left: 45vw;
+          bottom: 16vh;
+          width: 60vw;
+        }
+        @include max(sm) {
+          left: 55vw;
+          bottom: 10vh;
+          width: 80vw;
+        }
+      }
+    }
+  }
+  .caption {
+    max-width: 625px;
+    position: relative;
+    z-index: 1;
+    .btn {
+      background-color: #bd2c2e;
+      padding: 18px 70px;
+      font-size: 24px;
+      font-weight: 600;
+      @include max(md) {
+        padding: 13px 30px;
+        font-size: 18px;
+      }
+      &:hover {
+        background-color: #d53335;
+      }
+    }
+    @include max(md) {
+      img {
+        height: 55px;
+      }
+    }
+  }
+}
+
+.bookingSection {
+  padding: 150px 0px;
+  @include max(md) {
+    padding: 0;
+  }
+  .workFlowHolder {
+    @include max(md) {
+      overflow: hidden;
+    }
+    .workFlow {
+      width: 425px;
+      height: 425px;
+      border: 4px solid $primary;
+      padding: 25px;
+      left: 65px;
+      top: 80px;
+      @media screen and (max-width: 1366px) {
+        left: 0;
+        transform: scale(0.8);
+        transform-origin: top center;
+      }
+      @include max(lg) {
+        transform: scale(1);
+        margin-bottom: 250px;
+      }
+      @include max(md) {
+        transform: scale(0.675);
+        margin-bottom: 50px;
+        margin-top: 50px;
+        left: -20px;
+      }
+
+      @media screen and (max-width: 376px) {
+        transform: scale(0.625);
+        left: -35px;
+      }
+
+      .workflowInner {
+        background-color: $primary;
+        overflow: hidden;
+        img {
+          object-fit: cover;
+          object-position: center;
+          opacity: 0.75;
+        }
+        .caption {
+          width: 220px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          h3 {
+            color: $white;
+            line-height: 1.5;
+            text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+          }
+        }
+      }
+    }
+    .step {
+      width: 130px;
+      height: 130px;
+      border: 4px solid $primary;
+      position: absolute;
+      background-color: $white;
+      span {
+        position: absolute;
+        white-space: nowrap;
+      }
+      &.one {
+        top: -65px;
+        left: 50%;
+        transform: translateX(-50%);
+        span {
+          bottom: calc(100% + 10px);
+        }
+      }
+      &.two {
+        top: 10%;
+        left: -65px;
+        //transform: translateY(-20%);
+        span {
+          bottom: calc(100% + 10px);
+        }
+      }
+      &.three {
+        top: 10%;
+        right: -65px;
+        //transform: translateY(-20%);
+        span {
+          bottom: calc(100% + 10px);
+        }
+      }
+      &.four {
+        bottom: 10%;
+        left: -65px;
+        //transform: translateY(-20%);
+        span {
+          top: calc(100% + 10px);
+        }
+      }
+      &.five {
+        bottom: 10%;
+        right: -65px;
+        //transform: translateY(-20%);
+        span {
+          top: calc(100% + 10px);
+        }
+      }
+      &.six {
+        bottom: -65px;
+        left: 50%;
+        transform: translateX(-50%);
+        span {
+          top: calc(100% + 10px);
+        }
+      }
+    }
+  }
+  .book-taxi {
+    background-color: #e8e8e8;
+    border-radius: 15px;
+    form {
+      label {
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 3px;
+      }
+    }
+  }
+}
+
+.chooseTaxiRide {
+  h2 {
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 0px;
+      left: 50%;
+      transform: translate(-50%);
+      display: block;
+      width: 150px;
+      border-bottom: 3px solid $primary;
+    }
+  }
+  .card {
+    border-color: #dcdcdc;
+    border-radius: 7px;
+    transition: 0.3s;
+    position: relative;
+    top: 0;
+    &.active {
+      border-color: $primary;
+    }
+    .imageHolder {
+      background-color: #dcdcdc;
+      border-radius: 7px 7px 0px 0px;
+    }
+    &:hover {
+      top: -10px;
+    }
+    .card-body {
+      ul {
+        li {
+          position: relative;
+          padding-left: 16px;
+          &:before {
+            content: "";
+            position: absolute;
+            top: 6px;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: $primary;
+          }
+          a {
+            font-size: 14px;
+            color: $secondary;
+            &[href=""]:hover {
+              text-decoration: underline;
+            }
+            span {
+              display: inline-flex;
+              min-width: 95px;
+            }
+          }
+        }
+      }
+      .btn-warning {
+        font-size: 24px;
+        line-height: 1.5;
+        font-weight: 600;
+        background-color: $primary;
+        color: $white;
+        max-width: 110px;
+        border-radius: 7px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        @include max(lg) {
+          display: block !important;
+          max-width: 100%;
+          text-align: center;
+        }
+        @include max(md) {
+          font-size: 20px;
+        }
+        &:hover {
+          background-color: #f1c000;
+        }
+      }
+    }
+  }
+}
+
+.aboutUs {
+  .roundedShape {
+    width: 455px;
+    height: 455px;
+    background-color: $primary;
+    @include max(md) {
+      width: 340px;
+      height: 340px;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  h2 {
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 0px;
+      display: block;
+      width: 115px;
+      border-bottom: 3px solid $primary;
+    }
+  }
+}
+
+.contact {
+  h2 {
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 0px;
+      left: 50%;
+      transform: translate(-50%);
+      display: block;
+      width: 150px;
+      border-bottom: 3px solid $primary;
+    }
+  }
+  .card {
+    border: 0;
+    transition: 0.3s;
+    position: relative;
+    bottom: 0;
+    &:hover {
+      bottom: -10px;
+    }
+    .card-body {
+      background-color: #d9d9d9;
+      border-radius: 15px;
+      p {
+        font-size: 15px;
+      }
+      @include max(xl) {
+        img {
+          width: 100px;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  margin-top: 150px;
+  padding: 100px 0px;
+  background-color: $primary;
+  @include max(md) {
+    margin-top: 50px;
+  }
+  .withBorder {
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 0px;
+      display: block;
+      width: 100px;
+      border-bottom: 3px solid $secondary;
+    }
+  }
+  p {
+    color: $secondary;
+    a {
+      color: $secondary;
+    }
+  }
+  ul {
+    li {
+      &:not(:last-child) {
+        margin-bottom: 12px;
+      }
+      a {
+        color: $secondary;
+        &:hover {
+          text-decoration: underline;
+        }
+        i {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+  .input-group {
+    height: 48px;
+    span {
+      align-items: normal;
+      border: 0;
+      margin-left: 0 !important;
+      background-color: $secondary;
+    }
+    .btn {
+      background-color: $secondary;
+      color: $white !important;
+      font-weight: 600;
+    }
+  }
+}

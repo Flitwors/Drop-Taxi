@@ -1,0 +1,143 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+* {
+  transition: 0.2s;
+}
+:root {
+  --bs-body-color: #221f1f;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-moz-scrollbar {
+  width: 5px;
+}
+
+::-ms-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dedddf;
+  border-radius: 5px;
+}
+
+::-moz-scrollbar-thumb {
+  background: #64616e;
+}
+
+::-ms-scrollbar-thumb {
+  background: #64616e;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: rgba(0, 0, 0, 0.3) !important;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: rgba(0, 0, 0, 0.3) !important;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: rgba(0, 0, 0, 0.3) !important;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: rgba(0, 0, 0, 0.3) !important;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+p {
+  font-size: 16px;
+  margin-bottom: 0;
+}
+$font-sizes: (64px, 32px, 27px, 16px);
+$font-weight: (600, 600, 600, 600);
+@for $i from 1 through length($font-sizes) {
+  h#{$i} {
+    font-size: nth($font-sizes, $i);
+    font-weight: nth($font-weight, $i);
+    line-height: 1;
+    margin-bottom: 0;
+  }
+}
+
+@include max(md) {
+  $font-sizes: (50px, 30px, 25px, 16px);
+  @for $i from 1 through length($font-sizes) {
+    h#{$i} {
+      font-size: nth($font-sizes, $i);
+      font-weight: nth($font-weight, $i);
+      line-height: 1;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.btn {
+  border-radius: 5px;
+}
+
+form {
+  .form-control,
+  .form-select {
+    border-radius: 5px;
+    font-size: 15px;
+    height: 48px;
+    &:focus {
+      box-shadow: none;
+      border-color: $primary;
+    }
+  }
+  .btn-warning {
+    height: 50px;
+    background-color: $primary;
+    color: $white !important;
+    width: 100%;
+    border-color: $primary;
+    font-weight: 600;
+    font-size: 20px;
+    &:hover {
+      background-color: #f1c000;
+    }
+  }
+}
+.form-check-input {
+  border: 2px solid #ffffff;
+  outline: 1px solid $secondary;
+  box-shadow: none !important;
+  &:checked {
+    background-color: $primary;
+    --bs-form-check-bg-image: none !important;
+    border: 2px solid #ffffff;
+    outline: 1px solid $secondary;
+  }
+}
+.socialIcon {
+  width: 25px;
+  height: 25px;
+  background-color: $white;
+  i {
+    color: $secondary;
+  }
+}
